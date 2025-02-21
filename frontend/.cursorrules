@@ -6,6 +6,9 @@ Key Principles:
 - Prefer iteration and modularization over duplication.
 - Use descriptive variable names with auxiliary verbs (e.g., isLoading).
 - Favor named exports for components.
+- Use Tailwind CSS for styling.
+- Use Shadcn UI for components.
+- Use pnpm for package manager.
 
 JavaScript/TypeScript:
 
