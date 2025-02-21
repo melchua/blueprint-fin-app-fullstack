@@ -31,3 +31,4 @@ React:
 - Use mobile-first approach for responsive design.
 - Place static content and types at file end.
 - Optimize images: WebP format, size data, lazy loading.
+- Favor using Axios over fetch

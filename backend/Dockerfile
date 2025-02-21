@@ -2,7 +2,7 @@
 FROM python:3.12-slim
 
 # Set working directory
-WORKDIR /app
+WORKDIR /app/
 
 # Install uv
 RUN pip install uv
@@ -20,4 +20,4 @@ COPY . .
 EXPOSE 8000
 
 # Start the FastAPI application with production settings
-CMD ["python", "-m", "uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000", "--workers", "4", "--proxy-headers"]
+CMD ["python", "-m", "uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000", "--workers", "4", "--proxy-headers"]
