@@ -31,5 +31,6 @@ docker compose -f docker-compose.prod.yml up
 - The database is used to store the user's data
 - The database is accessed by the backend API
 
-Reasoning: We can just plop a Supabase url and not have to worry about rolling out our own database.
+# Reasoning: We can just plop a Supabase url and not have to worry about rolling out our own database.
+
 We should however, use two separate databases: one for production and one for development.
