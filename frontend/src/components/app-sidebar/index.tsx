@@ -1,5 +1,5 @@
-import { Settings, Home, Calculator, CreditCard } from "lucide-react";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Settings, Home, Calculator, CreditCard } from 'lucide-react'
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 
 import {
   Sidebar,
@@ -12,33 +12,33 @@ import {
   SidebarMenu,
   SidebarMenuItem,
   SidebarMenuButton,
-} from "@/components/ui/sidebar";
-import { Link } from "@tanstack/react-router";
+} from '@/components/ui/sidebar'
+import { Link } from '@tanstack/react-router'
 const menuItems = [
   {
-    label: "Home",
-    href: "/",
+    label: 'Home',
+    href: '/',
     icon: Home,
   },
   {
-    label: "Settings",
-    href: "/about",
+    label: 'Settings',
+    href: '/about',
     icon: Settings,
   },
-];
+]
 
 const discoveryItems = [
   {
-    label: "Retirement Planner",
-    href: "/retirement-planner",
+    label: 'Retirement Planner',
+    href: '/retirement-planner',
     icon: Calculator,
   },
   {
-    label: "Budgeting",
-    href: "/budgeting",
+    label: 'Budgeting',
+    href: '/budgeting',
     icon: CreditCard,
   },
-];
+]
 
 export function AppSidebar() {
   return (
@@ -48,7 +48,7 @@ export function AppSidebar() {
         <SidebarGroup>
           <SidebarGroupContent>
             <SidebarMenu>
-              {menuItems.map((item) => (
+              {menuItems.map(item => (
                 <SidebarMenuItem key={item.href}>
                   <Link to={item.href}>
                     <div className="flex items-center gap-4 p-1">
@@ -65,7 +65,7 @@ export function AppSidebar() {
           <SidebarGroupLabel>Discovery</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
-              {discoveryItems.map((item) => (
+              {discoveryItems.map(item => (
                 <SidebarMenuItem key={item.href}>
                   <Link to={item.href}>
                     <div className="flex items-center gap-4 p-1">
@@ -91,5 +91,5 @@ export function AppSidebar() {
         </SidebarGroup>
       </SidebarFooter>
     </Sidebar>
-  );
+  )
 }

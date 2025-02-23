@@ -4,10 +4,12 @@ from app.config import SETTINGS
 # sqlite_file_name = "database.db"
 # sqlite_url = f"sqlite:///{sqlite_file_name}"
 
-engine = create_engine(SETTINGS.supabase_connection_string)
+engine = create_engine(SETTINGS.otherstring)
+
 
 def init_db():
     SQLModel.metadata.create_all(engine)
+
 
 def get_session():
     with Session(engine) as session:
