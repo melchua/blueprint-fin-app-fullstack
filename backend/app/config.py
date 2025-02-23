@@ -9,6 +9,7 @@ SUPABASE_URL = os.getenv("SUPABASE_URL", "")
 SUPABASE_ANON_KEY = os.getenv("SUPABASE_ANON_KEY", "")
 SUPABASE_DB_PASSWORD = os.getenv("SUPABASE_DB_PASSWORD", "")
 
+
 class Settings(BaseSettings):
     supabase_url: str = Field(default=SUPABASE_URL)
     supabase_anon_key: str = Field(default=SUPABASE_ANON_KEY)
@@ -20,5 +21,6 @@ class Settings(BaseSettings):
     class Config:
         env_file = ".env"
         env_file_encoding = "utf-8"
+
 
 SETTINGS = Settings()

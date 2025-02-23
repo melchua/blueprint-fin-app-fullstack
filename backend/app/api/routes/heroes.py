@@ -7,6 +7,7 @@ from app.api.deps import SessionDep
 
 router = APIRouter(prefix="/heroes", tags=["heroes"])
 
+
 @router.post("/", response_model=HeroPublic)
 def create_hero(hero: HeroCreate, session: SessionDep):
     db_hero = Hero.model_validate(hero)
@@ -15,13 +16,14 @@ def create_hero(hero: HeroCreate, session: SessionDep):
     session.refresh(db_hero)
     return db_hero
 
+
 @router.get("/", response_model=list[HeroPublic])
 def read_heroes(
-    session: SessionDep,
-    offset: int = 0,
-    limit: Annotated[int, Query(le=100)] = 100):
+    session: SessionDep, offset: int = 0, limit: Annotated[int, Query(le=100)] = 100
+):
     heroes = session.exec(select(Hero).offset(offset).limit(limit)).all()
     return heroes
+
 
 @router.get("/{hero_id}", response_model=HeroPublic)
 def read_hero(hero_id: int, session: SessionDep):
@@ -29,6 +31,7 @@ def read_hero(hero_id: int, session: SessionDep):
     if not hero:
         raise HTTPException(status_code=404, detail="Hero not found")
     return hero
+
 
 @router.delete("/{hero_id}")
 def delete_hero(hero_id: int, session: SessionDep):
@@ -38,6 +41,7 @@ def delete_hero(hero_id: int, session: SessionDep):
     session.delete(hero)
     session.commit()
     return {"ok": True}
+
 
 @router.patch("/{hero_id}", response_model=HeroUpdate)
 def update_hero(hero_id: int, hero: HeroUpdate, session: SessionDep):
@@ -50,4 +54,3 @@ def update_hero(hero_id: int, hero: HeroUpdate, session: SessionDep):
     session.commit()
     session.refresh(hero_db)
     return hero_db
-
